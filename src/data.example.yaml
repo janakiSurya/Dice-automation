@@ -1,0 +1,110 @@
+personal_information:
+  name: "Your First Name"
+  surname: "Your Last Name"
+  date_of_birth: "MM/DD/YYYY"
+  country: "Your Country"
+  city: "Your City, State, Country"
+  address: "Your Address"
+  phone_prefix: "+1"
+  phone: "0000000000"
+  email: "you@example.com"
+  github: "https://github.com/yourhandle"
+  linkedin: "https://www.linkedin.com/in/yourhandle/"
+
+education_details:
+  - education_level: "Master's Degree"
+    institution: "Your University"
+    final_evaluation_grade: "GPA/Scale"
+    start_date: "YYYY"
+    year_of_completion: "YYYY"
+    field_of_study: "Computer Science"
+    exam:
+
+  - education_level: "Bachelor's Degree"
+    institution: "Your University"
+    final_evaluation_grade: "GPA/Scale"
+    start_date: "YYYY"
+    year_of_completion: "YYYY"
+    field_of_study: "Your Major"
+    exam:
+
+experience_details:
+  - position: "Your Title"
+    company: "Company Name"
+    employment_period: "MM/YYYY - Present"
+    location: "City, Country"
+    industry: "Industry"
+    key_responsibilities:
+      - responsibility_1: "Describe what you did (1–2 lines)."
+      - responsibility_2: "Describe another key responsibility."
+    skills_acquired:
+      - "Skill 1"
+      - "Skill 2"
+
+projects:
+  - name: "Project Name"
+    description: "1–3 lines describing the project and impact."
+    link: ""
+
+achievements:
+  - name: "Achievement Name"
+    description: "Short description."
+
+certifications:
+  - name: "Certification Name"
+    description: "Short description."
+
+technical_skills:
+  languages:
+    - "Python"
+    - "SQL"
+  ml_ai_frameworks:
+    - "scikit-learn"
+    - "PyTorch"
+  generative_ai:
+    - "LangGraph"
+    - "LangChain"
+  vector_search_rag:
+    - "FAISS"
+    - "ChromaDB"
+
+languages:
+  - language: "English"
+    proficiency: "Fluent"
+
+interests:
+  - "Machine Learning"
+  - "Generative AI"
+  - "MLOps"
+
+availability:
+  notice_period: "Immediate"
+
+salary_expectations:
+  salary_range_usd: "120000"
+
+self_identification:
+  gender: "Prefer not to say"
+  pronouns: ""
+  veteran: "No"
+  disability: "No"
+  ethnicity: "Prefer not to say"
+
+legal_authorization:
+  eu_work_authorization: "No"
+  us_work_authorization: "Yes"
+  requires_us_visa: "No"
+  requires_us_sponsorship: "Yes"
+  requires_eu_visa: "No"
+  legally_allowed_to_work_in_eu: "No"
+  legally_allowed_to_work_in_us: "Yes"
+  requires_eu_sponsorship: "No"
+
+work_preferences:
+  remote_work: "Yes"
+  in_person_work: "No"
+  open_to_relocation: "No"
+  willing_to_complete_assessments: "Yes"
+  willing_to_undergo_drug_tests: "Yes"
+  willing_to_undergo_background_checks: "Yes"
+

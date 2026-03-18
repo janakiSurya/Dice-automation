@@ -1,0 +1,11 @@
+# config.yaml
+credentials:
+  username: ""
+  # Prefer setting DICE_USERNAME/DICE_PASSWORD via .env.
+  # This file is kept as placeholders for local/dev usage.
+  password: ""
+
+search_params:
+  keyword: "Gen AI"
+  location: "United States"
+  days_posted: 1
