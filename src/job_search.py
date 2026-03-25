@@ -142,6 +142,30 @@ def is_easy_apply_available(driver):
         logging.info("'Easy Apply' button not found. Job likely already applied.")
     return False
 
+def _wait_after_final_submit(driver, submit_element, timeout=120):
+    """
+    After the final Submit click, the Easy Apply wizard often updates asynchronously.
+    Wait until the submit control is detached (typical SPA behavior) so the tab is not
+    closed while the request is still in flight, then allow the page to settle.
+    """
+    logging.info("Waiting for post-submit load to complete before finishing...")
+    try:
+        WebDriverWait(driver, timeout).until(EC.staleness_of(submit_element))
+        logging.info("Submit step DOM updated (previous submit control is gone).")
+    except TimeoutException:
+        logging.warning(
+            "Timed out waiting for submit UI to detach; using settle delay only."
+        )
+    # Extra buffer for redirects, success UI, and trailing network activity
+    time.sleep(10)
+    try:
+        WebDriverWait(driver, 45).until(
+            lambda d: d.execute_script("return document.readyState") == "complete"
+        )
+    except TimeoutException:
+        pass
+
+
 def navigate_form_and_submit(driver, data):
     """Navigate through the form pages by filling textareas and choosing options using AI-generated answers based on the corresponding questions."""
     try:
@@ -239,7 +263,9 @@ def navigate_form_and_submit(driver, data):
                         except WebDriverException:
                             pass
                         submit_button.click()
-                        logging.info("Application submitted successfully.")
+                        logging.info("Final Submit clicked; waiting for completion before closing tab.")
+                        _wait_after_final_submit(driver, submit_button)
+                        logging.info("Application submit flow finished.")
                         break
                     except TimeoutException:
                         logging.error("Could not find 'Submit' button. Exiting form process.")
