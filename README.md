@@ -81,3 +81,12 @@ Logs:
 - Apply clicked but no fields filled: textarea/radio selectors may need adjustment.
 - Submit not clicked: Next/Submit button selectors may need updates; check the button HTML and update `src/job_search.py`.
 
+
+
+## Github Actions
+Go to Github:
+Repo → Settings → Secrets → Actions
+
+Add:
+DICE_USERNAME
+DICE_PASSWORD
