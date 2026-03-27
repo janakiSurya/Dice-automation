@@ -1,0 +1,36 @@
+name: Dice Job Automation
+
+on:
+  schedule:
+    - cron: '0 * * * *'   # every 1 hour
+  workflow_dispatch:       # allow manual trigger
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Install Chrome
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y google-chrome-stable
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+
+    - name: Run Selenium bot
+      env:
+        DICE_USERNAME: ${{ secrets.DICE_USERNAME }}
+        DICE_PASSWORD: ${{ secrets.DICE_PASSWORD }}
+        CI: true   #  triggers headless mode in your code
+      run: |
+        python src/app.py
